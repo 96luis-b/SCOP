@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    
+</head>
+<body>
+    
+    <div class="container p-5">
+        <div class="text-center pt-5 ml-5">
+            <div class="col-8 input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-info text-white" for="inputGroupSelect01">Zona de extracción</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option value="1">(01) San Francisco</option>
+                  <option value="2">(02) Concha</option>
+                  <option value="3">(03) Sucre planta</option>
+                  <option value="4">(04) Santa Rita</option>
+                  <option value="5">(05) Baralt</option>
+                  <option value="6">(06) Sucre Concha</option>
+                </select>
+            </div>
+        </div>
+        <div class="pt-3 ml-5">
+            <div class="col-8 input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text bg-info text-white for="inputGroupSelect01">Tipo de producto</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option value="1">JUMBO</option>
+                    <option value="1">S/JUMBO</option>
+                    <option value="2">LUMP</option>
+                    <option value="2">S/LUMP</option>
+                    <option value="3">CLAW</option>
+                    <option value="3">S/CLAW</option>
+                    <option value="3">COCKTAIL</option>
+                </select>
+            </div>
+        </div>
+       <div class="col-4 ml-auto">
+            <div class="input-group">
+                <div class="input-group-prepend ">
+                    <span class="input-group-text  bg-info text-white" id="basic-addon3">Cantidad de unidades</span>
+                </div>
+                <input class="form-control" type="number" min="0" value="0" id="example-number-input">
+            </div>
+            <input class="mt-4 btn btn-info" type="button" value="Insertar">
+       </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead class="bg-info">
+              <tr>
+                <th scope="col">Nro</th>
+                <th scope="col">Zona de extracción</th>
+                <th scope="col">Tipo de producto</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+   
+
+    <script src="../jquery-3.1.0.js"></script>
+    <script src="../popper.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
