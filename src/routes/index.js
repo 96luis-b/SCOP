@@ -2,16 +2,18 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-const { home, login, dashboard } = require('./pages')
+    //paginas
+const { homePage, loginPage, dashboardPage } = require('./pages')
 
-router.get('/', home)
-router.get('/login', login)
-router.get('/dashboard', dashboard)
+router.get('/', homePage)
+router.get('/login', loginPage)
+router.get('/dashboard', dashboardPage)
 
+    //peticiones a base de datos
+const { getUsers, createUser, insertNewValue, login } = require('../controllers/index.controller')
 
-const { getUsers, createUser } = require('../controllers/index.controller')
-
-router.get('/users', getUsers) // endpoint para consulta a la DB
+router.post('/login', login) // endpoint para consulta a la DB
 router.post('/users', createUser) // endpoint para insercion a la DB
+router.post('/insertNewValue', insertNewValue) // endpoint para insercion a la DB
 
 module.exports = router;

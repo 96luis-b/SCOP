@@ -2,20 +2,20 @@ const express = require('express');
 const router = express.Router();
 //const path = require('path');
 
-const home = router.get('/',(req, res) => {
+const homePage = router.get('/',(req, res) => {
     res.render('index');
 })
 
-const login = router.get('/login',(req, res) => {
+const loginPage = router.get('/login',(req, res) => {
     res.render('login');
 })
 
-const dashboard = router.get('/dashboard',(req, res) => {
+const dashboardPage = router.get('/dashboard',(req, res) => {
     res.render('dashboard');
 })
 
   module.exports = {
-                    home, 
-                    login,
-                    dashboard  
+                    homePage, 
+                    loginPage,
+                    dashboardPage  
                     };
