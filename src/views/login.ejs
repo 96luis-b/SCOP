@@ -18,18 +18,18 @@
             <div class="col-6 pt-5 mt-4">
                 <form>
                     <div class="form-group">
-                        <label class="h3" for="exampleInputEmail1">Usuario</label>
-                        <input type="text" class="form-control" id="exampleInputUser" placeholder="">
+                        <label class="h3" for="inputUser">Usuario</label>
+                        <input type="text" class="form-control" id="inputUser" placeholder="">
                         <small id="userHelp" class="form-text text-muted">Escriba su nombre de usuario para el posterior ingreso a su cuenta!</small>
                     </div>
                     <div class="form-group">
-                        <label class="h3" for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                        <label class="h3" for="inputPassword">Contraseña</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="">
                     </div>
                         
-                        <a class="nav-link h5" href="/dashboard"> 
+                        <a class="nav-link h5"> 
                             <form class="form-inline">
-                                <button class="btn btn-outline-info" type="button">Confirmar</button>
+                                <button id="btnSend" class="btn btn-outline-info" type="button">Confirmar</button>
                             </form>
                         </a>
                 </form>
@@ -39,5 +39,7 @@
     </div>
 
      <%- include('./partials/footer.ejs')-%>
+     <script src="/reqSession.js"></script>
+     <script src="/localsession.js"></script>
 </body>
 </html>

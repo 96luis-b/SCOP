@@ -91,6 +91,9 @@ INSERT INTO product (name_produc) VALUES ('Claw');
 INSERT INTO product (name_produc) VALUES ('Cocktail');
 INSERT INTO product (name_produc) VALUES ('S/Lump');
 INSERT INTO product (name_produc) VALUES ('S/Claw');
+INSERT INTO product (name_produc) VALUES ('Cesta/Jumbo');
+INSERT INTO product (name_produc) VALUES ('R/Lump');
+INSERT INTO product (name_produc) VALUES ('R/Claw');
 
 	--oper_produc
 
@@ -135,3 +138,9 @@ INSERT INTO units_count
 	-- work_area
 	DELETE FROM work_area WHERE id_work_area = 6;
 
+
+-- update data
+
+	-- product
+	UPDATE product SET  name_product='RS/Lump' WHERE id_product=6
+	UPDATE product SET  name_product='RS/Claw' WHERE id_product=7

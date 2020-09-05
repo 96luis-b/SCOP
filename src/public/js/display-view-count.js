@@ -1,6 +1,7 @@
 let ids_card_count = [  "jumbo-count", 
                         "lump-count", 
                         "special-count", 
+                        "claw-count", 
                         "rs-claw-count", 
                         "r-claw-count", 
                         "cocktail-count",
@@ -8,9 +9,12 @@ let ids_card_count = [  "jumbo-count",
                         "s-lump-count",
                         "cesta-jumbo-count"];
 
+
+
 let value_card_cout = [ "Jumbo",
                         "Lump",
                         "Special",
+                        "Claw",
                         "RS/Claw",
                         "R/Claw",
                         "Cocktail",

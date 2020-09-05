@@ -13,18 +13,18 @@ let card_count = (id, value)=>{
                 <div class="container">
                     <div class="row text-center mt-3">
                         <div class="col-1">
-                            <button class="btn btn-info btn-custon" name="less" onclick="scan_click_button(this)">-</button>
+                            <button class="btn btn-info btn-custon" name="less" onclick="scan_click_button(this, '${value}')">-</button>
                         </div>
                         <div class="col-3"></div>
                         <div class="col-2">
-                            <button class="btn btn-info btn-custon" name="halfless" onclick="scan_click_button(this)">-1/2</button>
+                            <button class="btn btn-info btn-custon" name="halfless" onclick="scan_click_button(this, '${value}')">-1/2</button>
                         </div>
                         <div class="col-2">
-                            <button class="btn btn-info btn-custon" name="halfmore" onclick="scan_click_button(this)">+1/2</button>
+                            <button class="btn btn-info btn-custon" name="halfmore" onclick="scan_click_button(this, '${value}')">+1/2</button>
                         </div>
                         <div class="col-3"></div>
                         <div class="col-1">
-                            <button class="btn btn-info btn-custon" name="more" onclick="scan_click_button(this)">+</button>
+                            <button class="btn btn-info btn-custon" name="more" onclick="scan_click_button(this, '${value}')">+</button>
                         </div>
                     </div>  
                 </div>
