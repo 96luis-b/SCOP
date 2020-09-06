@@ -24,7 +24,7 @@ var scan_click_button = (element, name_product)=>{
     }
 
     // saveCounter(accountant, name_product)
-    console.log(sendValue(accountant, name_product, id_oper.innerHTML))
+    sendValue(accountant, name_product, id_oper.innerHTML)
 }
 
 var less = (hijos)=>{

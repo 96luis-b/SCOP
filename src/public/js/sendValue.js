@@ -18,6 +18,7 @@ var sendValue = (data, name_product, id_oper) =>{
   .then(res => res.json())
   .then(response => {
     console.log('Success:', response)
+    console.log('Status:', response.status)
     if(response.status==200){
       upgradeCount(data, name_product, id_oper)
       return response.status

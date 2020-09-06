@@ -54,7 +54,6 @@ const insertNewValue = async (req, res) => {
     const resQuest = await pool.query('SELECT id_product FROM product WHERE name_product=$1',[name_product])
     const id_product = resQuest.rows[0].id_product
     await pool.query('INSERT INTO units_count (quantity, date, time, id_user, id_product, id_oper) VALUES ($1, $2, $3, $4, $5, $6)', [quantity, date, time, id_user, id_product, id_oper])
-    //console.log(response);
     res.status(200).json({
         status:200,
         response: "ok"
