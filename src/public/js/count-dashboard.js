@@ -24,11 +24,13 @@ var scan_click_button = (element, name_product)=>{
     }
 
     // saveCounter(accountant, name_product)
-    sendValue(accountant, name_product, id_oper.innerHTML)
+    if(accountant){ 
+        sendValue(accountant, name_product, id_oper.innerHTML)
+    }
 }
 
 var less = (hijos)=>{
-    if(hijos[1].firstChild.innerHTML<=0){
+    if(hijos[1].firstChild.innerHTML<=0.5){
         alert("No es posible, su cuenta esta en 0");
         return;
     }

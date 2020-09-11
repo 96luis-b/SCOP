@@ -1,5 +1,5 @@
 var sendValue = (data, name_product, id_oper) =>{
-  var d = new Date();
+  let d = new Date();
   fetch('/insertNewValue', {
     method: 'POST', // or 'PUT'
     body: JSON.stringify({

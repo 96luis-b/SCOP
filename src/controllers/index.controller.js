@@ -60,9 +60,58 @@ const insertNewValue = async (req, res) => {
     })
 }
 
+const getOper = async (req, res) => {
+    const { date, oper } =  req.body;
+
+    // console.log(date)
+    // console.log(oper)
+//     console.log(oper)
+//     console.log(`${oper}`)
+//     console.log(oper.length)
+//     console.log(`${oper}`.length > 0)
+//     console.log(parseInt(`${oper}`).valueOf()==Number)
+//     // let resGetOper;
+//    // let resCount = await pool.query('SELECT id_oper, id_product, SUM(quantity) FROM units_count WHERE date = $1 AND id_oper = $2 GROUP BY id_oper, id_product', [date, id_oper])
+//    if(oper==Number){
+//         if(oper.length > 6){
+//             //busqueda de operario por cedula de identidad
+//             console.log("ic")
+//             resGetOper = await pool.query('SELECT * FROM oper_produc WHERE ic = $1', [oper])
+//         }else{
+//             // busqueda de operario por codigo de identificacion
+//             console.log("id")
+//             resGetOper = await pool.query('SELECT * FROM oper_produc WHERE id_oper = $1', [oper])
+//         }
+//    }else{   
+//        // busqueda de operario por nombre(s) y apellido(s)
+//         console.log("name")
+//         resGetOper = await pool.query('SELECT * FROM oper_produc WHERE name_oper = $1', [oper])
+//     }
+  // let resGetOper = await pool.query('SELECT * FROM oper_produc WHERE id_oper = $1', [oper])
+  let resGetOper = await pool.query('SELECT * FROM oper_produc INNER JOIN workstation ON oper_produc.id_workstation = workstation.id_workstation WHERE oper_produc.id_oper = $1', [oper])
+//   console.log(resGetOper.rows)
+  if(resGetOper.rows.length==0){
+    res.status(404).json({
+        status:404,
+        body:"No se encuentra"
+    })
+    return
+  }
+  let resCount = await pool.query('SELECT id_oper, units_count.id_product, name_product, SUM(quantity) FROM units_count INNER JOIN product ON product.id_product = units_count.id_product WHERE date = $1 AND id_oper = $2 GROUP BY id_oper, units_count.id_product, name_product', [date, oper])
+    //console.log(resCount.rows)
+    // medevuelve todo solo falta devolver el puesto de trabajo
+    res.status(200).json({
+        status:200,
+        body:{
+            resCount: resCount.rows,
+            resGetOper:resGetOper.rows
+        }
+    })
+}
 module.exports = {
     // session
     login,
+    getOper,
 
     // user
     getUsers,

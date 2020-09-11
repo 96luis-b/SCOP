@@ -44,3 +44,10 @@
     width: 100%;
 }
 
+
+.diabled-elemt-a{
+    pointer-events: none;
+    cursor: default; 
+    opacity: 0.6;
+}
+

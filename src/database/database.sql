@@ -62,7 +62,11 @@ SELECT * FROM work_area
 SELECT * FROM workstation
 
 
+-- consultas
 
+	--consulta de conteo de unidades con fecha espesifica
+ --SELECT id_oper, id_product, sum(quantity)FROM units_count WHERE date = '2020/09/05' GROUP BY id_oper, id_product
+SELECT id_oper, id_product, SUM(quantity) FROM units_count WHERE date = '2020/09/08' AND id_oper = 1 GROUP BY id_oper, id_product
 
 --insert data
 
@@ -107,7 +111,7 @@ INSERT INTO product (name_produc) VALUES ('R/Claw');
 
 INSERT INTO oper_produc 
  (name_oper, second_name_oper, lastname, second_surname_oper, id_work_area, id_workstation) 
- VALUES ('Maria', 'Luisa', 'Gonzalez', 'Gonzalez', 2, 1);	-- Colmillo
+ VALUES ('Maria', 'Luisa', 'Gonzalez', 'Gonzalez', 2, 2);	-- Colmillo
 
  INSERT INTO oper_produc 
  (name_oper, second_name_oper, lastname, second_surname_oper, id_work_area, id_workstation) 
@@ -126,9 +130,11 @@ INSERT INTO oper_produc
 
 INSERT INTO units_count 
  (quantity, date, time, id_user, id_product, id_oper) 
- VALUES (1, '2020/08/31', '14:44:20', 1, 4, 6);		-- Extración de carne negra 
+ VALUES (1, '2020/08/31', '14:44:20', 1, 4, 7);		-- Extración de carne negra 
 
-
+INSERT INTO units_count 
+ (quantity, date, time, id_user, id_product, id_oper) 
+ VALUES (1, '2020/09/08', '14:44:20', 1, 1, 1);		-- Extración de carne blanca 
 
 
 

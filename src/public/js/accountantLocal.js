@@ -1,7 +1,10 @@
 window.onload = saveCount = () => {
-    localStorage.setItem('board', JSON.stringify({oper:[]}));
     console.log(loadCount())
-    console.log("Se ha creado almacen local");
+    if(!loadCount()){
+        localStorage.setItem('board', JSON.stringify({oper:[]}));
+        console.log(loadCount())
+        console.log("Se ha creado almacen local");
+    }
 }
 
 var loadCount = () => {
@@ -22,20 +25,14 @@ let startPackaging = (data, name_product, id_oper) =>{ //
 
     
     if(dashboard.oper.length > 0){
-        console.log("cjcfjj")
-
         for (let i = 0; i < dashboard.oper.length; i++) {
             if(dashboard.oper[i].id_oper == id_oper){
                 if(dashboard.oper[i].count.length > 0){
                     for (let j = 0; j < dashboard.oper[i].count.length; j++) {
                         if(dashboard.oper[i].count[j].product.length > 0){
                             // let u = 0;
-                            for (let x = 0; x < dashboard.oper[i].count[i].product.length; x++) {
-                                // console.log(u++)
-                                // console.log(dashboard.oper[i].count[i].product.length) 
-                                // console.log(x)
-                                // console.log(dashboard.oper[i].count[j].product[x].name_product) 
-                                // console.log(name_product)
+                            for (let x = 0; x < dashboard.oper[i].count[j].product.length; x++) {
+
                                 if(dashboard.oper[i].count[j].product[x].name_product == name_product){
                                     dashboard.oper[i].count[j].product[x].timeCount = data.timeCount
                                     dashboard.oper[i].count[j].product[x].unitCount = data.unitCount
@@ -43,7 +40,7 @@ let startPackaging = (data, name_product, id_oper) =>{ //
                                     console.log("actualizacion de conteo")
                                     return dashboard
                                     
-                                }else if(dashboard.oper[i].count[i].product.length == x+1){
+                                }else if(dashboard.oper[i].count[j].product.length == x+1){
                                     console.log("no se ha encontrado el producto")
                                     dashboard.oper[i].count[j].product.push({
                                         name_product: name_product,
@@ -99,9 +96,57 @@ let productPackage = (data, name_product, productPack) => {
         if(productPack[index].name_product == name_product){
 
         }
-        
     }
 }
+
+let loadCountDetail = (data) => {
+    console.log(data)
+    let dashboard = loadCount()
+    if(dashboard.oper.length > 0){
+        for (let i = 0; i < dashboard.oper.length; i++) {
+
+            if(dashboard.oper[i].id_oper == data.id_oper){
+                if(dashboard.oper[i].count.length > 0){
+                    for (let j = 0; j < dashboard.oper[i].count.length; j++) {
+                        if(dashboard.oper[i].count[j].product.length > 0){
+                            for (let x = 0; x < dashboard.oper[i].count[j].product.length; x++) {
+                                if(dashboard.oper[i].count[j].product[x].name_product == data.name_product){
+                                    // dashboard.oper[i].count[j].product[x].timeCount = data.timeCount
+                                    // console.log("el nombre de estos productos son iguales")
+                                   // console.log(data)
+                                    // console.log(data.sum)
+                                    if(!data.sum){
+                                        return dashboard.oper[i].count[j].product[x]
+                                    }else if(dashboard.oper[i].count[j].product[x].unitCount == (data.sum).toFixed(1)){
+                                        // console.log(dashboard.oper[i].count[j].product[x].unitCount)
+                                        // console.log((data.sum).toFixed(1))
+                                        // console.log("los valores son iguales")
+                                        return dashboard.oper[i].count[j].product[x]
+                                    }else{
+                                        // console.log("no son iguales")
+                                    }
+                                    // dashboard.oper[i].count[j].product[x].partialTimeCounter = data.partialTimeCounter
+                                    return
+                                }else{
+                                    // console.log("el nombre de estos productos no son iguales")
+                                }
+                            }
+                        }else{
+                            // console.log("no hay unidades contadas")
+                        }
+                    }
+                }else{
+                    // console.log("no hay ninguna cuenta abierta")
+                }
+            }else{
+                // console.log("el codigo de identificacion no se reconoce")
+            }
+        }
+    }else{
+        // console.log("tablero de conteo se encuentra vacio")
+    }
+
+} //
 
 let fullPackage = (data, name_product, id_oper) => {
     return  {
