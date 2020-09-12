@@ -3,11 +3,13 @@ const router = express.Router();
 
 
     //paginas
-const { homePage, loginPage, dashboardPage } = require('./pages')
+const { homePage, loginPage, dashboardPage, insertData, report } = require('./pages')
 
 router.get('/', homePage)
 router.get('/login', loginPage)
 router.get('/dashboard', dashboardPage)
+router.get('/insertData', insertData)
+router.get('/report', report)
 
     //peticiones a base de datos
 const { getUsers, createUser, insertNewValue, login, getOper } = require('../controllers/index.controller')

@@ -14,8 +14,18 @@ const dashboardPage = router.get('/dashboard',(req, res) => {
     res.render('dashboard');
 })
 
+const report = router.get('/report',(req, res) => {
+    res.render('report');
+})
+
+const insertData = router.get('/insertData',(req, res) => {
+    res.render('insertData');
+})
+
   module.exports = {
                     homePage, 
                     loginPage,
-                    dashboardPage  
+                    dashboardPage,
+                    insertData,
+                    report
                     };

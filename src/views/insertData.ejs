@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <%- include('./partials/head.ejs')-%>
+
     
 </head>
 <body>
@@ -14,9 +15,9 @@
         <div class="text-center pt-5 ml-5">
             <div class="col-8 input-group mb-3">
                 <div class="input-group-prepend">
-                  <label class="input-group-text bg-info text-white" for="inputGroupSelect01">Zona de extracción</label>
+                  <label class="input-group-text bg-info text-white" for="selectExtractArea">Zona de extracción</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
+                <select class="custom-select" id="selectExtractArea">
                   <option value="1">(01) San Francisco</option>
                   <option value="2">(02) Concha</option>
                   <option value="3">(03) Sucre planta</option>
@@ -29,16 +30,14 @@
         <div class="pt-3 ml-5">
             <div class="col-8 input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text bg-info text-white for="inputGroupSelect01">Tipo de producto</label>
+                    <label class="input-group-text bg-info text-white" for="selectProductType">Tipo de producto</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option value="1">JUMBO</option>
-                    <option value="1">S/JUMBO</option>
-                    <option value="2">LUMP</option>
-                    <option value="2">S/LUMP</option>
-                    <option value="3">CLAW</option>
-                    <option value="3">S/CLAW</option>
-                    <option value="3">COCKTAIL</option>
+                <select class="custom-select" id="selectProductType">
+                    <option value="1">Jumbo</option>
+                    <option value="2">Lump</option>
+                    <option value="3">Special</option>
+                    <option value="4">CLAW</option>
+                    <option value="5">COCKTAIL</option>
                 </select>
             </div>
         </div>
@@ -47,9 +46,9 @@
                 <div class="input-group-prepend ">
                     <span class="input-group-text  bg-info text-white" id="basic-addon3">Cantidad de unidades</span>
                 </div>
-                <input class="form-control" type="number" min="0" value="0" id="example-number-input">
+                <input class="form-control" type="number" min="0" value="1" id="inputNumber">
             </div>
-            <input class="mt-4 btn btn-info" type="button" value="Insertar">
+            <input class="mt-4 btn btn-info" type="button" value="insertar" onclick="insert()">
        </div>
     </div>
 
@@ -70,25 +69,12 @@
                 <td>Otto</td>
                 <td>@mdo</td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
             </tbody>
           </table>
     </div>
    
+    <%- include('./partials/footer.ejs')-%>
+    <%- include('./partials/insertDataScript.ejs')-%>
 
-    <script src="../jquery-3.1.0.js"></script>
-    <script src="../popper.js"></script>
-    <script src="../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
