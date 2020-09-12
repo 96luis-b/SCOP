@@ -1,4 +1,4 @@
-window.onload = saveCount = () => {
+let saveCount = () => {
     console.log(loadCount())
     if(!loadCount()){
         localStorage.setItem('board', JSON.stringify({oper:[]}));
@@ -164,7 +164,7 @@ let fullPackage = (data, name_product, id_oper) => {
                     }
                 ]
             }
-        
-    
  }
+
+ window.onload = saveCount();
     

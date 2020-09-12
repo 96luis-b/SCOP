@@ -12,4 +12,5 @@ var loadSession = () => {
 
 var logOutSession = (data) => {
     localStorage.clear()
+    window.location.href = "./login"
  }

@@ -29,7 +29,8 @@ var search = (date) =>{
           //console.log(count)
           let package = {
             oper: {name_op: `${dataOper.name_oper } ${dataOper.second_name_oper } ${dataOper.lastname } ${dataOper.second_surname_oper}`,
-              workstation:dataOper.descrip
+              workstation:dataOper.descrip,
+              id_oper: dataOper.id_oper
             },
             count: count
           }
@@ -39,11 +40,16 @@ var search = (date) =>{
         clean_count()
         name_oper.innerHTML = package.oper.name_op;
         workstation.innerHTML = package.oper.workstation
+        id_oper.innerHTML = package.oper.id_oper
         display_count(count)
 
 
         
-      }else{console.error({response: response.body, status: response.status})}
+      }else{
+        disab()
+        alert("El codigo descrito no se encuetra")
+        console.error({response: response.body, status: response.status})
+      }
     })
     .catch(error => console.error('Error:', error))
   }
