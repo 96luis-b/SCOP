@@ -1,6 +1,6 @@
 /** JUMBO */ 
 let card_count = (id, value, count)=>{
-    let accountant = {partialTimeCounter: 0.0, timeCount: 0.0, unitCount: 0.0}
+    let accountant = {partialTimeCounter: (0.0).toFixed(1), timeCount: (0.0).toFixed(1), unitCount: (0.0).toFixed(1)}
     console.log("codigo de identificacion de operario: " + id_oper.innerHTML)
     if(count != null){
         accountant.partialTimeCounter = count.partialTimeCounter
@@ -9,9 +9,11 @@ let card_count = (id, value, count)=>{
     }else if(id_oper.innerHTML){
         let localCount = loadCountDetail({id_oper: id_oper.innerHTML, name_product: value})
         // console.log(localCount)
-        accountant.partialTimeCounter = localCount.partialTimeCounter
-        accountant.timeCount = localCount.timeCount
-        accountant.unitCount = localCount.unitCount
+        if(localCount){
+            accountant.partialTimeCounter = localCount.partialTimeCounter
+            accountant.timeCount = localCount.timeCount
+            accountant.unitCount = localCount.unitCount
+        }
     }
     return `
     <div id="${id}" class="col text-center mb-2" style="width:auto;">
@@ -24,7 +26,7 @@ let card_count = (id, value, count)=>{
                     <div class="col-12 mt-1 total-count container-shadow"><p class="txt-black">${accountant.unitCount}</p></div>
                 </div>
                 <div class="container">
-                    <div class="row text-center mt-3">
+                    <div class="row row-cols-4 text-center mt-3">
                         <div class="col-3">
                             <button class="btn btn-info btn-custon" name="less" onclick="scan_click_button(this, '${value}')">-</button>
                         </div>

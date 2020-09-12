@@ -37,7 +37,7 @@ let display_count = (value)=>{
                 if(value[i].name_product == value_card_cout[index]){
                     // console.log(index)
                     // console.log(document.querySelector("label.form-check-label[for='check10']"))
-                    document.querySelector(`input.form-check-input[value='${index}']`).checked = true
+                    //document.querySelector(`input.form-check-input[value='${index}']`).checked = true
 
                     console.log(typeof(loadCountDetail(value[i])))
                     let counter_container = document.getElementById("counter_container").children;

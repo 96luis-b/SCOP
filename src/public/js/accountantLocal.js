@@ -102,6 +102,7 @@ let productPackage = (data, name_product, productPack) => {
 let loadCountDetail = (data) => {
     console.log(data)
     let dashboard = loadCount()
+    console.log(dashboard)
     if(dashboard.oper.length > 0){
         for (let i = 0; i < dashboard.oper.length; i++) {
 
@@ -144,6 +145,7 @@ let loadCountDetail = (data) => {
         }
     }else{
         // console.log("tablero de conteo se encuentra vacio")
+        return false
     }
 
 } //
