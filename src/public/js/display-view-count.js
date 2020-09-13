@@ -37,7 +37,7 @@ let display_count = (value)=>{
                 if(value[i].name_product == value_card_cout[index]){
                     // console.log(index)
                     // console.log(document.querySelector("label.form-check-label[for='check10']"))
-                    //document.querySelector(`input.form-check-input[value='${index}']`).checked = true
+                    document.querySelector(`input.form-check-input[value='${index}']`).checked = true
 
                     console.log(typeof(loadCountDetail(value[i])))
                     let counter_container = document.getElementById("counter_container").children;
@@ -65,10 +65,16 @@ let clean_count = ()=>{
     let row = counter_container.childNodes[1]
     let elements = counter_container.childNodes[1].children
     let i = elements.length
-    if(i > 0){
-        for (let index = 0; index < i; index++) {
-            row.removeChild(elements[0]);
+        if(i > 0){
+            for (let index = 0; index < i; index++) {
+                for (let i = 0; i < ids_card_count.length; i++) {
+                    if(elements[0].id == ids_card_count[i]){
+                        document.querySelector(`input.form-check-input[value='${i}']`).checked = false
+                    }
+                }
+                row.removeChild(elements[0]);
+            }
         }
-    }
+    
     
 }

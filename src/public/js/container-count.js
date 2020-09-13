@@ -26,7 +26,7 @@ let card_count = (id, value, count)=>{
                     <div class="col-12 mt-1 total-count container-shadow"><p class="txt-black">${accountant.unitCount}</p></div>
                 </div>
                 <div class="container">
-                    <div class="row row-cols-4 text-center mt-3">
+                    <div class="row text-center mt-3">
                         <div class="col-3">
                             <button class="btn btn-info btn-custon" name="less" onclick="scan_click_button(this, '${value}')">-</button>
                         </div>
