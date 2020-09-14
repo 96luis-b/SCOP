@@ -98,8 +98,7 @@ const getOper = async (req, res) => {
     return
   }
   let resCount = await pool.query('SELECT id_oper, units_count.id_product, name_product, SUM(quantity) FROM units_count INNER JOIN product ON product.id_product = units_count.id_product WHERE date = $1 AND id_oper = $2 GROUP BY id_oper, units_count.id_product, name_product', [date, oper])
-    //console.log(resCount.rows)
-    // medevuelve todo solo falta devolver el puesto de trabajo
+    
     res.status(200).json({
         status:200,
         body:{

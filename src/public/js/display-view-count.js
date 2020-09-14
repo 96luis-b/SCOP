@@ -38,11 +38,18 @@ let display_count = (value)=>{
                     // console.log(index)
                     // console.log(document.querySelector("label.form-check-label[for='check10']"))
                     document.querySelector(`input.form-check-input[value='${index}']`).checked = true
-
-                    console.log(typeof(loadCountDetail(value[i])))
-                    let counter_container = document.getElementById("counter_container").children;
-                    counter_container[0].innerHTML = `${counter_container[0].innerHTML}${card_count(ids_card_count[index], value_card_cout[index], loadCountDetail(value[i]))}`
-                    // evaluar el producto y activar o desactivar el checkbook
+                     console.log(value[i])
+                     console.log(loadCountDetail(value[i]))
+                    if(loadCountDetail(value[i])){
+                        console.log("es true")
+                        let counter_container = document.getElementById("counter_container").children;
+                        counter_container[0].innerHTML = `${counter_container[0].innerHTML}${card_count(ids_card_count[index], value_card_cout[index], loadCountDetail(value[i]))}`
+                    
+                    }else{
+                        console.log("es false")
+                        let counter_container = document.getElementById("counter_container").children;
+                        counter_container[0].innerHTML = `${counter_container[0].innerHTML}${card_count(ids_card_count[index], value_card_cout[index], value[i])}`
+                    }
                     
                 } 
             }

@@ -1,14 +1,19 @@
 /** JUMBO */ 
 let card_count = (id, value, count)=>{
     let accountant = {partialTimeCounter: (0.0).toFixed(1), timeCount: (0.0).toFixed(1), unitCount: (0.0).toFixed(1)}
-    console.log("codigo de identificacion de operario: " + id_oper.innerHTML)
+    // console.log(count)
     if(count != null){
-        accountant.partialTimeCounter = count.partialTimeCounter
-        accountant.timeCount = count.timeCount
-        accountant.unitCount = count.unitCount
+        if(count.partialTimeCounter){
+            accountant.partialTimeCounter = count.partialTimeCounter
+            accountant.timeCount = count.timeCount
+            accountant.unitCount = count.unitCount
+        }else{
+            accountant.unitCount = (count.sum).toFixed(1)
+        }
+        
     }else if(id_oper.innerHTML){
         let localCount = loadCountDetail({id_oper: id_oper.innerHTML, name_product: value})
-        // console.log(localCount)
+        console.log(localCount)
         if(localCount){
             accountant.partialTimeCounter = localCount.partialTimeCounter
             accountant.timeCount = localCount.timeCount
@@ -21,9 +26,9 @@ let card_count = (id, value, count)=>{
             <div class="card-body">
                 <p class="cad-title mb-3 txt-shadow-simple h1">${value}</p>
                 <div class="row text-right display-4">
-                    <div class="col-12 temp-count container-shadow"><p class="txt-black">${accountant.partialTimeCounter}</p></div>
-                    <div class="col-12 mt-1 pers-count container-shadow"><p class="txt-black">${accountant.timeCount}</p></div>
-                    <div class="col-12 mt-1 total-count container-shadow"><p class="txt-black">${accountant.unitCount}</p></div>
+                    <div class="col-12 temp-count container-shadow"><p class="txt-black">${accountant.timeCount}</p></div>
+                    <div class="col-12 mt-1 pers-count container-shadow"><p class="txt-black">${accountant.unitCount}</p></div>
+                    <div class="col-12 mt-1 total-count container-shadow"><p class="txt-black">${accountant.partialTimeCounter}</p></div>
                 </div>
                 <div class="container">
                     <div class="row text-center mt-3">

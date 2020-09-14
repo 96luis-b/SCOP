@@ -18,13 +18,20 @@ var search = (date) =>{
     .then(res => res.json())
     .then(response => {
       if(response.status==200){
-        console.log(name_oper)
-        console.log(workstation)
+        
         const count = []
         const dataOper = response.body.resGetOper[0];
           for (let index = 0; index < response.body.resCount.length; index++) {
            // console.log(response.body.resCount[index])
-             count.push(response.body.resCount[index])
+            // let pack = {
+            //   id_oper: response.body.resCount[index].id_oper,
+            //   id_product: response.body.resCount[index].id_product,
+            //   name_product: response.body.resCount[index].name_product,
+            //   partialTimeCounter = count.partialTimeCounter
+            //   timeCount = count.timeCount
+            //   unitCount = count.unitCount
+            // }
+            count.push(response.body.resCount[index])
           }
           //console.log(count)
           let package = {
