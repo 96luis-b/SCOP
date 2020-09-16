@@ -14,3 +14,15 @@ var logOutSession = (data) => {
     localStorage.clear()
     window.location.href = "./login"
  }
+
+//  window.addEventListener('load', 
+//      function() { 
+//         console.log("check de sesion")
+//         if(loadSession()){
+//             window.location.href = "./dashboard"
+//             return
+//         }else{
+//            Storage.clear();
+//            window.location.href = "./login"
+//         }
+//      }, false);

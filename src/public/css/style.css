@@ -51,3 +51,9 @@
     opacity: 0.6;
 }
 
+.focusElement{
+    border-color: rgba(17, 34, 14, 0.8);
+    box-shadow: 0 0 50px rgba(34, 55, 75, 0.6);
+    outline: 0 none;
+}
+
