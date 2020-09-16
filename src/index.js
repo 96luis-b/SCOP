@@ -19,7 +19,6 @@ app.use(session({secret: "Shh, its a secret!"}));
 
 app.get('/',(req, res) => {
      res.render('index');
-   
 })
 app.post('/', (req, res) => {
     if(req.session.page_views){
