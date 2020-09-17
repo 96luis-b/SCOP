@@ -8,7 +8,20 @@
 <body>
     <h1>Hello word</h1>
 
-    <button onclick="sendValue()">presiona me</button>
+    <a href="/next" target="_top">next page</a> 
+    <button onclick="finestraSecundaria()">siguiente pagina</button> 
+    <!-- <button onclick="sendValue()">presiona me</button>  -->
+    <script language=javascript>
+        function finestraSecundaria (){
+            console.log("activo")
+         window.open('/next', "Diseño Web")
+         window.close('./index')
+
+        // window.location.opener = "/next"
+        //window.location.replace("/next");
+        // window.document = '/next' 
+        }
+        </script> 
     <script src="http://localhost:3000/app.js"></script>
 </body>
 </html>

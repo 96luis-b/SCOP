@@ -15,18 +15,32 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 app.use(cookieParser());
-app.use(session({secret: "Shh, its a secret!"}));
+app.use(session({
+    secret: "Shh-its-a-secret!",
+    resave: false,
+    saveUninitialized: false
+
+}));
 
 app.get('/',(req, res) => {
-     res.render('index');
+    res.render('index');
+})
+app.get('/next',(req, res) => {
+    res.render('next');
 })
 app.post('/', (req, res) => {
     if(req.session.page_views){
         req.session.page_views++;
-        res.send("You visited this page " + req.session.page_views + " times");
+        res.status(200).json({
+            status:200,
+            response: "You visited this page " + req.session.page_views + " times"
+        })
      } else {
         req.session.page_views = 1;
-        res.send("Welcome to this page for the first time!");
+        res.status(200).json({
+            status:200,
+            response: "Welcome to this page for the first time!"
+        })
      }
 })
 
