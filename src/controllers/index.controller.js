@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+// const session_middlewares = require('../middlewares/session')
 
 const { Pool } = require('pg');
 
@@ -15,7 +16,9 @@ const pool = new Pool({
 const login = async (req, res) => {
     const { username, password } = req.body;
     const response = await pool.query('SELECT * FROM user_1  WHERE username = $1 AND password = $2', [username, password])
-    
+    // req.session.my_iduser = "hola"
+    // console.log(res.session.my_iduser)
+        
     if(response.rows.length != 0){
         res.send(JSON.stringify({
                 status:200,
