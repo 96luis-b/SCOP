@@ -1,22 +1,22 @@
-const express = require('express');
-const router = express.Router();
+const { Router } = require('express');
+const router = Router()
 
+router.get('/', (req, res) =>{
+    res.render('index')
+})
 
-    //paginas
-const { homePage, loginPage, dashboardPage, insertData, report } = require('./pages')
+router.post('/register', (req, res) =>{
+    console.log(req.body)
+    // req.session.my_variable = 'hello world'  // para añadir un dato a session
+    req.flash('success', 'now your are registered')
 
-router.get('/', homePage)
-router.get('/login', loginPage)
-router.get('/dashboard', dashboardPage)
-router.get('/insertData', insertData)
-router.get('/report', report)
+    // res.send('received')
+    res.redirect('./profile')
+})
 
-    //peticiones a base de datos
-const { getUsers, createUser, insertNewValue, login, getOper } = require('../controllers/index.controller')
-
-router.post('/login', login) // endpoint para consulta a la DB
-router.post('/users', createUser) // endpoint para insercion a la DB
-router.post('/insertNewValue', insertNewValue) // endpoint para insercion a la DB
-router.post('/getOper', getOper) // endpoint para insercion a la DB
+router.get('/profile', (req, res) =>{
+    console.log(req.session.my_variable)
+    res.render('profile')
+})
 
 module.exports = router;
