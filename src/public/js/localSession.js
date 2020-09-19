@@ -6,7 +6,7 @@ var saveSession = (data) => {
 
 var loadSession = () => {
    let user = JSON.parse(localStorage.getItem('user'))
-   console.log(user)
+//    console.log(user)
    return user
 }
 
@@ -15,14 +15,21 @@ var logOutSession = (data) => {
     window.location.href = "./login"
  }
 
-//  window.addEventListener('load', 
-//      function() { 
-//         console.log("check de sesion")
-//         if(loadSession()){
-//             window.location.href = "./dashboard"
-//             return
-//         }else{
-//            Storage.clear();
-//            window.location.href = "./login"
-//         }
-//      }, false);
+ window.onload = () =>{
+    if(loadSession()){
+        window.location.href = "./dashboard"
+        return
+    }else{ 
+        if(window.location.pathname == '/login'){
+            return
+        }else{
+            localStorage.clear();
+            window.location.href = "./login"
+        }
+        
+    }
+ } 
+    //  function() { 
+    //     console.log("check de sesion")
+     
+    //  }, false);
