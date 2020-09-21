@@ -1,7 +1,8 @@
 let fullPackCount = (count, workstation) => {
-    let packCang = JSON.stringify(packCangrejo)
-    packCang = JSON.parse(packCang)
+    
     if(workstation == 'Cangrejero'){
+        let packCang = JSON.stringify(packCangrejo)
+        packCang = JSON.parse(packCang)
         for (let i = 0; i< packCang.length; i++) {
             for (let j = 0; j < count.length; j++) {
                 // console.log(packCang[i].name_product == count[j].name_product)
@@ -24,6 +25,8 @@ let fullPackCount = (count, workstation) => {
     }
 
     // if(workstation == 'Colmillero'){
+        // let packColm = JSON.stringify(packColmillo)
+        // packColm = JSON.parse(packColm)
     //     for (let i = 0; i< packColm.length; i++) {
     //         for (let j = 0; j < count.length; j++) {
     //             if(packColm[i].name_product == count[j].name_product){
@@ -37,6 +40,8 @@ let fullPackCount = (count, workstation) => {
     //     }
     // }
     // if(workstation == 'Revisador de carne negra'){
+        // let packCN = JSON.stringify(packCarneNegra)
+        // packCN = JSON.parse(packCN)
     //     for (let i = 0; i< packCN.length; i++) {
     //         for (let j = 0; j < count.length; j++) {
     //             if(packCN[i].name_product == count[j].name_product){
@@ -51,6 +56,8 @@ let fullPackCount = (count, workstation) => {
     //     return packCN
     // }
     // if(workstation == 'Revisador de carne blanca'){
+        // let packCB = JSON.stringify(packCarneBlanca)
+        // packCB = JSON.parse(packCB)
     //     for (let i = 0; i< packCB.length; i++) {
     //         for (let j = 0; j < count.length; j++) {
     //             if(packCB[i].name_product == count[j].name_product){
