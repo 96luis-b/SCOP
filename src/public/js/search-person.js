@@ -21,8 +21,9 @@ var search = (date) =>{
         
         const count = []
         const dataOper = response.body.resGetOper[0];
+       const packageCount = fullPackCount(response.body.resCount, dataOper.descrip)
           for (let index = 0; index < response.body.resCount.length; index++) {
-           // console.log(response.body.resCount[index])
+           console.log(response.body.resCount[index])
             // let pack = {
             //   id_oper: response.body.resCount[index].id_oper,
             //   id_product: response.body.resCount[index].id_product,
@@ -33,22 +34,23 @@ var search = (date) =>{
             // }
             count.push(response.body.resCount[index])
           }
-          //console.log(count)
+          console.log(packageCount)
+          console.log(count)
           let package = {
             oper: {name_op: `${dataOper.name_oper } ${dataOper.second_name_oper } ${dataOper.lastname } ${dataOper.second_surname_oper}`,
               workstation:dataOper.descrip,
               id_oper: dataOper.id_oper
             },
-            count: count
+            count: packageCount
           }
         
-      //  console.log(response)
+        console.log(package.oper.workstation)
         enab()
         clean_count()
         name_oper.innerHTML = package.oper.name_op;
         workstation.innerHTML = package.oper.workstation
         id_oper.innerHTML = package.oper.id_oper
-        display_count(count)
+        display_count(package.count)
 
 
         
