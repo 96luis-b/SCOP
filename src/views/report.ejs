@@ -35,32 +35,52 @@
                 <div class="form-group ml-5">
                     <label class="h3" for="">Tipo de reporte</label> 
                     <div class="col-6">
-                        <select class="custom-select" id="selectTypeReport">
+                        <select class="custom-select" id="selectTypeReport" onchange="type_report(this)">
+                            <option value="" disabled selected>Seleccione una opción</option>
                             <option value="1">General de producción</option>
                             <option value="2">Por proceso</option>
                             <option value="3">Especifico por operario</option>
                         </select>
                     </div>
                 </div>
-                <div class="form-group ml-5">
+                <div id="divCodeOper" class="form-group ml-5" style="display: none;">
                     <!-- selector
                         depende de la opcion anterior
                     -->
                     <label class="h3" for="">Codigo de identificación del operario</label>
-                    <div class="col-4">
-                        <input type="password" class="form-control" id="" placeholder="">
+                    <div class="col-5">
+                        <input type="number" class="form-control" id="" placeholder="Codigo del operario" min="1" >
                     </div>
                 </div>
-                <div class="form-group col-5 ml-5">
+                <div id="selectArea" class="form-group ml-5" style="display: none;">
+                    <label class="h3" for="">Proceso</label> 
+                    <div class="col-6">
+                        <select class="custom-select" id="selectTypeReport">
+                            <option value="" disabled selected>Seleccione una proceso</option>
+                            <option value="1">Desconche</option>
+                            <option value="2">Extracción de carne blanca</option>
+                            <option value="3">Extracción de carne negra</option>
+                            <option value="4">Revisado de carne blanca</option>
+                            <option value="5">Revisado de carne negra</option>
+                            <option value="6">Revisado de carne jumbo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group ml-5">
                     <label class="h3" for="">Fecha</label>
-                    <input type="date" class="form-control" id="" placeholder="">
+                    <input type="date" class="col-5 form-control ml-3" id="" placeholder="">
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-5"></div>
                         <div class="col-5"></div>
                         <div class="col-2 align-self-end">
-                            <button type="submit" class="btn btn-info btn-lg">Buscar</button>
+                            <button type="button" class="btn btn-info btn-lg">
+                                Buscar
+                            </button>
+                            <button onclick="generalProductionReport()" type="button" class="btn btn-info btn-lg">
+                                test
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -70,6 +90,8 @@
         </div>
     </div>
     
+    <%- include('./partials/reportboard.ejs')-%>
+
     <%- include('./partials/footer.ejs')-%>
     <%- include('./partials/reportScript.ejs')-%>
 </body>

@@ -22,4 +22,6 @@ $(document).ready(function(){
 
     $("#checkReport").click(check_box);
     $("#checkGraphics").click(check_box);   
+
 })
+

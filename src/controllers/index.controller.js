@@ -35,8 +35,7 @@ const login = async (req, res) => {
 
     // user
 const getUsers = async (req, res) => {
-    const { username, password } = req.body;
-    const response = await pool.query('SELECT users FROM (username, password) VALUE ($1, $2)', [username, password])
+    const response = await pool.query('SELECT * FROM user_1')
     console.log(response);
     res.status(200).json(response.rows)
 }
@@ -99,8 +98,6 @@ const getOper = async (req, res) => {
   }
   let resCount = await pool.query('SELECT id_oper, units_count.id_product, name_product, SUM(quantity) FROM units_count INNER JOIN product ON product.id_product = units_count.id_product WHERE date = $1 AND id_oper = $2 GROUP BY id_oper, units_count.id_product, name_product', [date, oper])
     
-
-
     res.status(200).json({
         status:200,
         body:{
@@ -109,6 +106,49 @@ const getOper = async (req, res) => {
         }
     })
 }
+
+const generalReport = async (req, res)  => {
+    // const { date } =  req.body;
+    let date = '2020/09/21'
+    let id_oper = 0;
+    let pack = []
+    let dataOper = []
+    let response = await pool.query(`
+    SELECT units_count.id_oper, units_count.id_product, workstation.descrip,
+    oper_produc.name_oper, oper_produc.second_name_oper, oper_produc.lastname, oper_produc.second_surname_oper, 
+    name_product,  SUM(quantity) 
+    FROM units_count 
+    INNER JOIN product ON product.id_product = units_count.id_product
+    INNER JOIN oper_produc ON oper_produc.id_oper = units_count.id_oper
+    INNER JOIN workstation ON workstation.id_workstation = oper_produc.id_workstation
+    WHERE date = $1
+    GROUP BY units_count.id_oper, units_count.id_product, workstation.descrip,
+    oper_produc.name_oper, oper_produc.second_name_oper, oper_produc.lastname, oper_produc.second_surname_oper, name_product
+    ORDER BY units_count.id_oper  `,[date])
+    
+    //  console.log(response.rows)
+    //console.log(response)
+    for (let index = 0; index < response.rows.length; index++) {
+        let row = response.rows[index]
+        let next = response.rows[(index+1)]
+      if(next != undefined && row.id_oper == next.id_oper){
+          dataOper.push(row)
+      }else{
+        dataOper.push(row)
+        pack.push(dataOper)
+        dataOper = []
+      }
+    }
+//    console.log(pack)
+
+    res.status(200).json({
+        status:200,
+        // response:response.rows
+        response:pack
+    })
+
+}
+
 module.exports = {
     // session
     login,
@@ -119,5 +159,8 @@ module.exports = {
     createUser,
 
     // count
-    insertNewValue
+    insertNewValue,
+
+    //report
+    generalReport
 }
